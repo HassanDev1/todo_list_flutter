@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_flutter/components/task_view.dart';
+import 'package:todo_list_flutter/screens/add_task.dart';
 
 class TaskScreen extends StatefulWidget {
   @override
@@ -10,6 +11,12 @@ class _TaskScreenState extends State<TaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed:(){ 
+          showModalBottomSheet(context: context, builder: (context)=>AddScreen());
+        },
+        child: Icon(Icons.add),
+        ),
       backgroundColor: Colors.blueAccent,
       body:Column(
         crossAxisAlignment: CrossAxisAlignment.start,
