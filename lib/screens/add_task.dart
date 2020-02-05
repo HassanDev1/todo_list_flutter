@@ -16,14 +16,29 @@ class _AddScreenState extends State<AddScreen> {
             decoration:InputDecoration(
               hintText:'Add a Task',
               
-            )
+              
+            ),
+            autofocus: true,
+            textAlign: TextAlign.center,
+            
           ),
+          SizedBox(height:10.0),
           FlatButton(onPressed: (){
 
           },
-           child:Text("Add") )
+          color: Colors.blueAccent,
+           child:Text("Add",
+           style: TextStyle(
+             fontSize: 25.0,
+             color:Colors.white
 
-      ],)
+           ),
+           ),
+          ),
+            
+
+      ],
+      )
       
     );
   }
