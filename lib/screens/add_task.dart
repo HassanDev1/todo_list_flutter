@@ -20,6 +20,9 @@ class _AddScreenState extends State<AddScreen> {
             ),
             autofocus: true,
             textAlign: TextAlign.center,
+            onChanged: (newValue){
+              
+            },
             
           ),
           SizedBox(height:10.0),

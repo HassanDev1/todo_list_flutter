@@ -9,5 +9,7 @@ class TextData extends ChangeNotifier{
     Task(name: 'Buy Eggs'),
   ];
   
-
+ int getDataSize(){
+   return tasks.length;
+ }
 }

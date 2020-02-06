@@ -45,7 +45,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   ),
                   ),
                   SizedBox(height:10.0),
-                  Text('${Provider.of<TextData>(context).tasks.length} Tasks',
+                  Text('${Provider.of<TextData>(context).getDataSize()} Tasks',
                   style: TextStyle(
                     fontSize:25.0,
                     color: Colors.white,

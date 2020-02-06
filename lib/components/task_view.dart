@@ -28,7 +28,7 @@ class _TaskViewState extends State<TaskView> {
         });
 
     },
-    itemCount: Provider.of<TextData>(context).tasks.length,
+    itemCount: Provider.of<TextData>(context).getDataSize(),
     );
   }
 }
