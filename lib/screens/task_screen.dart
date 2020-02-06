@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list_flutter/components/task_view.dart';
+import 'package:todo_list_flutter/modules/task_data.dart';
 import 'package:todo_list_flutter/screens/add_task.dart';
 
 class TaskScreen extends StatefulWidget {
@@ -43,7 +45,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   ),
                   ),
                   SizedBox(height:10.0),
-                  Text('12 Tasks',
+                  Text('${Provider.of<TextData>(context).tasks.length} Tasks',
                   style: TextStyle(
                     fontSize:25.0,
                     color: Colors.white,

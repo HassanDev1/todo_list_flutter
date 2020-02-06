@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list_flutter/components/task_tile.dart';
-import 'package:todo_list_flutter/modules/task.dart';
+
+import 'package:todo_list_flutter/modules/task_data.dart';
 
 class TaskView extends StatefulWidget {
   @override
@@ -10,25 +12,23 @@ class TaskView extends StatefulWidget {
 class _TaskViewState extends State<TaskView> {
   
 
-  List<Task> tasks = [
-    Task(name: 'Buy Bread'),
-    Task(name: 'Buy Milk'),
-    Task(name: 'Buy Eggs'),
-  ];
+  
   
   @override
   Widget build(BuildContext context) {
     return ListView.builder(itemBuilder: (context,index){
-      return TaskTile(text: tasks[index].name,isChecked: tasks[index].isDone,toggleCheckBox: 
+      return TaskTile(text: Provider.of<TextData>(context).tasks[index].name,
+      isChecked: Provider.of<TextData>(context).tasks[index].isDone,toggleCheckBox: 
       (checkBoxState){
-        setState(() {
-          tasks[index].toggleDone();
-        });
+        // setState(() {
+        //   tasks[index].toggleDone();
+        // }
+        // );
         
         });
 
     },
-    itemCount: tasks.length,
+    itemCount: Provider.of<TextData>(context).tasks.length,
     );
   }
 }
