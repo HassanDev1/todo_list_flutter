@@ -4,31 +4,26 @@ import 'package:todo_list_flutter/components/task_tile.dart';
 
 import 'package:todo_list_flutter/modules/task_data.dart';
 
-class TaskView extends StatefulWidget {
-  @override
-  _TaskViewState createState() => _TaskViewState();
-}
+class TaskView extends StatelessWidget{
 
-class _TaskViewState extends State<TaskView> {
-  
-
-  
-  
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context,index){
-      return TaskTile(text: Provider.of<TextData>(context).tasks[index].name,
-      isChecked: Provider.of<TextData>(context).tasks[index].isDone,toggleCheckBox: 
-      (checkBoxState){
-        // setState(() {
-        //   tasks[index].toggleDone();
-        // }
-        // );
-        
-        });
+    return Consumer<TextData>(
+      builder: (context,taskData, child){
+          return ListView.builder(itemBuilder: (context,index){
+        return TaskTile(
+          text: taskData.tasks[index].name,
+          isChecked: taskData.tasks[index].isDone,
+          toggleCheckBox: 
+          (checkBoxState){
+          taskData.toggleDone(taskData.tasks[index]);
+          
+          });
 
-    },
-    itemCount: Provider.of<TextData>(context).getDataSize(),
+      },
+      itemCount: taskData.getDataSize(),
+      );
+      }
     );
   }
 }
