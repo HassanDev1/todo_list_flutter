@@ -24,5 +24,9 @@ class TextData extends ChangeNotifier{
     task.toggleDone();
     notifyListeners();
   }
+  void deleteCallBack(Task task){
+    tasks.remove(task);
+    notifyListeners();
+  }
  
 }

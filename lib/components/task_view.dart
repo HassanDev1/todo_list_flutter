@@ -12,6 +12,7 @@ class TaskView extends StatelessWidget{
       builder: (context,taskData, child){
           return ListView.builder(itemBuilder: (context,index){
         return TaskTile(
+          onLongPressCallBack:() {taskData.deleteCallBack(taskData.tasks[index]);},
           text: taskData.tasks[index].name,
           isChecked: taskData.tasks[index].isDone,
           toggleCheckBox: 
